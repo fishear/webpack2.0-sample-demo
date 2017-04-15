@@ -35,13 +35,15 @@ module.exports = {
 			template: __dirname + "/app/index.tpl.html"
 		}),
     	new webpack.optimize.UglifyJsPlugin(),
-    	new ExtractTextPlugin("style.css")
+    	new ExtractTextPlugin("style.css"),
+    	new webpack.HotModuleReplacementPlugin()
 	],
 	devServer: {
 		contentBase: "./public",//本地服务器所加载的页面所在的目录
 		colors: true, //终端输出结果为彩色
 		historyApiFallback: true, //不跳转
-		inline: true //实时刷新
+		inline: true, //实时刷新
+		hot: true
 	}
 }
 
